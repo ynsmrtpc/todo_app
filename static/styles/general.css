@@ -5,6 +5,17 @@ body {
     font-size: 18px;
 }
 
+.welHr {
+    height: 30px;
+    border: 3px solid #e74c3c;
+    border-radius: 12px;
+    width: 15em;
+}
+
+.welHr::after {
+    content: 'Welcome Todo-App';
+}
+
 .addTodo {
     display: inline-block;
 }
@@ -107,6 +118,7 @@ body {
 i {
     color: #e74c3c !important;
     margin-left: 25px;
+    --fa-animation-duration: 5s;
 }
 
 @keyframes slide {
@@ -130,15 +142,15 @@ i {
 
 .reversed {
     display: inline-block;
-    padding: 1.5em;
-    padding-left: 3em;
+    padding: 1em;
+    padding-left: 2em;
     margin-left: 0.8em;
     position: relative;
     text-align: center;
     vertical-align: middle;
     line-height: 1;
     color: #fff;
-    font-size: 15px;
+    font-size: 20px;
     background-color: #ef5350;
 }
 

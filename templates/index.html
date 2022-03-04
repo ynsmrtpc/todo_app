@@ -10,12 +10,14 @@
     <link rel="stylesheet" href="/static/styles/general.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
+    <script src="https://kit.fontawesome.com/a0054e1e2a.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
     <div class="container">
-        <!-- <h1 align='center'>Hello Todo-App</h1> -->
-        <hr>
+        <!-- <h1 align='center'>Welcome Todo-App</h1> -->
+        <hr class="welHr">
         <form class="addTodo" action="/add" method='post'>
             <div class="form-group">
                 <div class="input-container mt-3">
@@ -43,26 +45,28 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>id</th>
+                        <!-- <th>id</th> -->
                         <th class="th-lg">Todo Title</th>
                         <th class="th-lg">Todo Status</th>
                         <th class="th-lg">Update</th>
                         <th class="th-lg">Delete</th>
+                        <th class="th-lg">Alarm</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for todo in todos%}
 
                     <tr>
-                        <th scope="row">{{todo.id}}</th>
+                        <!-- <th scope="row">{{todo.id}}</th> -->
                         <td>{{todo.title}}</td>
                         {% if todo.complete == False %}
                         <td>Not Completed</td>
                         {% else %}
                         <td>Completed</td>
                         {% endif %}
-                        <td><a href="/complete/{{todo.id}}"><i class="fa-solid fa-clipboard-check"></i></a></td>
-                        <td><a href="/delete/{{todo.id}}"><i class="fa-solid fa-eraser"></i></a></td>
+                        <td><a href="/complete/{{todo.id}}"><i class="fa-solid fa-sync fa-spin"></i></a></td>
+                        <td><a href="/delete/{{todo.id}}"><i class="fa-solid fa-bomb fa-bounce"></i></a></td>
+                        <td><a href="/alarm/{{todo.id}}"><i class="fa-solid fa-bell fa-shake"></i> </a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

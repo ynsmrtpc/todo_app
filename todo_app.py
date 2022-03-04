@@ -2,7 +2,7 @@ from flask import Flask,render_template,redirect,url_for,request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/yunus/Desktop/todo-app/todo.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/Topcu/Desktop/todo-app/todo.db'
 db = SQLAlchemy(app)
 
 class Todo(db.Model):
@@ -26,9 +26,9 @@ def add():
     return redirect(url_for('index'))
 
 @app.route('/complete/<string:id>')
-def completeTodo(id):
+async def completeTodo(id):
     todo = Todo.query.filter_by(id=id).first()
-    todo.complete = not todo.complete # true convert false, false convert true
+    todo.complete =  not todo.complete # true convert false, false convert true
     db.session.commit()
     return redirect(url_for('index'))
 
